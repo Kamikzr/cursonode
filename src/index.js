@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express();
+const clientes = require('./routes/api/clientes')
 const port = 3000;
+
+app.use('api/clientes', clientes);
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
 });
 
-app.listem(port, () => {
-    console.log('Server rodando na porta 3000');
+app.listen(port, () => {
+    console.log(`Executing on port ${port}`);
 })
