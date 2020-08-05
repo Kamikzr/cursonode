@@ -1,6 +1,8 @@
 const express = require('express');
 const Pool = require('pg').Pool;
 
+
+
 const router = express.Router();
 
 router.get('/test', (req, res) => {
@@ -26,6 +28,7 @@ router.get('/', async (req, res) => {
     
 })
 
+//Metodo get
 router.get('/:id', async (req, res) => {
     try{
         client = await Pool.connect();
@@ -46,6 +49,8 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+
+//Metodo post
 router.post('/', async (req, res) => {
     const cliente = req.body;
 
