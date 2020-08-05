@@ -1,18 +1,15 @@
 const express = require('express');
 const app = express();
-const clientes = require('./routes/api/clientes')
-const port = 3000;
+const clientes = require('./routes/api/clientes');
 const bodyParser = require('body-parser');
+const port = 3000;
 
-// Middlware para ler json
-app.use(bodyParser.json())
+// Middleware para leitura de json
+app.use(bodyParser.json());
 
-app.use('api/clientes', clientes);
+app.use('/api/clientes', clientes);
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-});
-
+//Dfinindo a porta para o servidor
 app.listen(port, () => {
-    console.log(`Executing on port ${port}`);
-})
+  console.log(`Example app listening at http://localhost:${port}`)
+});
